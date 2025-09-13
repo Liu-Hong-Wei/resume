@@ -8,16 +8,17 @@
 
 #import "@preview/fontawesome:0.5.0": *
 #let link-icon = "link"
-#let iconlink(uri, text: [], icon: link-icon) = {
-  if text == [] {
-    text = uri
+#let iconlink(uri, txt: [], icon: link-icon) = {
+  if txt == [] {
+    txt = uri
   }
-  link(uri)[#fa-icon(icon) #text]
+  link(uri)[#fa-icon(icon) #text(size: 10pt)[#txt]]
 }
 
 #let githublink(userRepo) = {
   link("https://github.com/" + userRepo)[#fa-icon("github") #userRepo]
 }
+
 
 // https://github.com/typst/typst/issues/1987#issuecomment-1690672386
 #let latex = {
@@ -49,13 +50,35 @@
   )
 }
 
+#let namewithposition(name, position) = {
+  stack(
+    dir: ltr,
+    spacing: 1fr,
+    heading(level: 1)[#name],
+    if position != none {
+    text(
+        size: 12pt,
+        weight: "light",
+        fill: black,
+      )[#position]
+    } else { }
+  )
+}
+
+#let inline-h3(content) = {
+  text(
+    size: 11pt,
+    weight: "bold"
+  )[#content]
+}
+
 #let chicv(body) = {
   set par(justify: true)
 
   show heading.where(
     level: 1
   ): set text(
-    size: 18pt,
+    size: 16pt,
     weight: "light",
   )
 
@@ -64,28 +87,33 @@
     "Source Han Serif SC",
     "Source Han Serif",
   )
+  
   show heading.where(
     level: 2
   ): it => text(
-    size: 12pt,
+    size: 14pt,
     font: the-font,
     weight: "bold",
     block(
-      chiline() + it,
+      chiline() + it
     )
   )
+
   set list(indent: 0pt)
+
   set text(
-    size: 9pt,
+    size: 10pt,
     font: the-font
   )
 
   show link: it => underline(offset: 2pt, it)
+
   set page(
-   margin: (x: 0.5cm, y: 0.9cm),
-   numbering: "1 / 1"
+   margin: (x: 1cm, y: 1cm),
+   // numbering: "1 / 1"
   )
-  set par(justify: true)
+  
+  set par(justify: true, leading: 8pt)
 
   body
 }
