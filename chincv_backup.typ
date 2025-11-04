@@ -1,3 +1,5 @@
+// Modified by ice1000 at 2023-08-16
+
 #let chiline() = {
   v(-3pt);
   line(length: 100%, stroke: gray);
@@ -6,17 +8,16 @@
 
 #import "@preview/fontawesome:0.5.0": *
 #let link-icon = "link"
-#let iconlink(uri, txt: [], icon: link-icon) = {
-  if txt == [] {
-    txt = uri
+#let iconlink(uri, text: [], icon: link-icon) = {
+  if text == [] {
+    text = uri
   }
-  link(uri)[#fa-icon(icon) #text(size: 10pt)[#txt]]
+  link(uri)[#fa-icon(icon) #text]
 }
 
 #let githublink(userRepo) = {
   link("https://github.com/" + userRepo)[#fa-icon("github") #userRepo]
 }
-
 
 // https://github.com/typst/typst/issues/1987#issuecomment-1690672386
 #let latex = {
@@ -48,28 +49,6 @@
   )
 }
 
-#let namewithposition(name, position) = {
-  stack(
-    dir: ltr,
-    spacing: 1fr,
-    heading(level: 1)[#name],
-    if position != none {
-    text(
-        size: 12pt,
-        weight: "light",
-        fill: black,
-      )[#position]
-    } else { }
-  )
-}
-
-#let inline-h3(content) = {
-  text(
-    size: 11pt,
-    weight: "bold"
-  )[#content]
-}
-
 #let chicv(body) = {
   set par(justify: true)
 
@@ -85,33 +64,28 @@
     "Source Han Serif SC",
     "Source Han Serif",
   )
-  
   show heading.where(
     level: 2
   ): it => text(
-    size: 14pt,
+    size: 12pt,
     font: the-font,
     weight: "bold",
     block(
-      chiline() + it + v(2pt)
+      chiline() + it,
     )
   )
-
   set list(indent: 0pt)
-
   set text(
-    size: 10pt,
+    size: 9pt,
     font: the-font
   )
 
   show link: it => underline(offset: 2pt, it)
-
   set page(
-   margin: (x: 1cm, y: 1cm),
-   // numbering: "1 / 1"
+   margin: (x: 0.5cm, y: 0.9cm),
+   numbering: "1 / 1"
   )
-  
-  set par(justify: true, leading: 8pt)
+  set par(justify: true)
 
   body
 }
