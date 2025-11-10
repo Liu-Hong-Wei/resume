@@ -37,9 +37,16 @@
       ([Computer Networks], [计算机网络]),
       ([Computer Organization], [计算机组成]),
     )
-    translate(en: [== Education], zh: [== 教育经历])
+    translate(en: [== Education], zh: [== 教育背景])
     let gpa = 3.72
     let cuc-date = [#translate-date(9, 2023) -- #translate-date(6, 2027)]
+    let merit = {
+      translate(en: [
+        #cventry(tl: "Merit Student", tr: "")[]
+      ], zh: [
+        #cventry(tl: [大一、大二均获*校三好学生、校三等奖学金*], tr: [*GPA*: #gpa/4.00 (88/100)])[]
+      ])
+    }
     translate(
       en: cventry(
         tl: [B.S. in Computer Science at *Communication University of China*, Beijing, China],
@@ -50,8 +57,10 @@
       zh: cventry(
         tl: [*中国传媒大学（211/双一流）*，计算机科学与技术专业，本科大三在读，北京],
         tr: [#cuc-date (预计毕业)],
-      )[GPA: #gpa/4.00 (88/100)\
-        主修课程：#cuc-courses.map(item => item.at(1)).join("，")],
+      )[#merit
+        
+        // 主修课程：#cuc-courses.map(item => item.at(1)).join("，")
+        ]
     )
   }
 
@@ -77,13 +86,43 @@
         技术栈：*React $dot.c$ Vite $dot.c$ Tailwind CSS $dot.c$ Motion $dot.c$ React Router $dot.c$ Unified.js $dot.c$ ESLint $dot.c$ Prettier $dot.c$ TypeScript*
       - 基于 *Vite* 构建的 *React 19* 进行高复用性的组件化开发，使用 *ESLint* 和 *Prettier* 进行代码质量控制, 确保代码风格一致性和减少潜在错误，进行高效开发。
       - 利用 *TypeScript* 的类型安全特性和 *Tailwind CSS* 的快速样式开发能力，同时使用全局样式变量，保证样式的一致性和可维护性。
-      - 基于 React Suspense 和全局缓存机制优化数据请求，实现懒加载，减少冗余网络调用。
-      - 实现自动恢复滚动位置功能，集成 *Motion* 动画库、无障碍支持、用户打断检测和异步内容支持，并抽象成通用函数例如支持回到顶部，提升用户浏览体验。
-      - 使用 Unified.js 生态实现 *Markdown* 的高度自定义样式渲染，支持标题锚点自动生成，并使用 Rehype Pretty Code 支持代码块的*语法高亮*。
-      - 通过*自定义 Hooks*实现*暗黑模式*、图片与组件的*懒加载*以及*客户端缓存*策略，提升用户体验。
-      - 使用 Django 后端开发，能够编写 *RESTful API* 接口与前端联调，实现了博客文章、标签等数据的异步获取与动态渲染。
+      - 基于 *React Suspense* 和全局缓存机制优化数据请求，实现懒加载，减少冗余网络调用。
+      - 实现自动恢复滚动位置功能，集成 *Motion* 动画库、无障碍支持、用户打断检测和异步内容支持，并抽象封装成通用函数例如滚动到特定位置，提升用户浏览体验。
+      - 使用 *Unified.js* 生态实现 *Markdown* 的自定义样式渲染，支持标题锚点自动生成，并支持代码块的*语法高亮*。
+      - 通过*自定义 Hooks*实现暗黑模式、图片与组件的懒加载以及客户端缓存策略，提升用户体验。
+      - 使用 *Docker* 部署前后端，利用 *GitHub Actions* 实现主分支更新自动部署到生产环境,实现简单的 *CI/CD* 无感化部署。
+      - 使用 *Django* 后端开发，能够编写 *RESTful API* 接口与前端联调，实现了博客文章、标签等数据的异步获取与动态渲染。
       // - TODO: 包括*全文搜索*、支持多语言的*国际化 (i18n)* 。
       // - TODO: 架构设计注重*可伸缩性*和*性能*，引入*渐进式网络应用 (PWA)* 功能以支持离线访问，以及通过优化的*代码分割*来加快加载速度。
+      ],
+    )
+  }
+
+  let resumeAnalysis = {
+    translate(
+      en: cventry(
+        tl: inline-h3("AI Resume Analysis System"),
+        tr: [#githublink("Liu-Hong-Wei/resume-analysis")],
+      )[
+      *Tech Stack*: React, Vite, Tailwind CSS, DaisyUI, SSE (Server-Sent Events), Coze API
+      - Architected and developed a real-time, streaming AI chat interface using *React* and *Server-Sent Events (SSE)* for an interactive resume analysis experience.
+      - Created a custom hook (`useChat`) to manage the entire lifecycle of AI conversations, including message state, streaming content, loading indicators, and error handling.
+      - Implemented a component-based architecture featuring a modular `ChatInterface` that renders streaming AI responses, providing users with immediate feedback.
+      - Integrated with a *Coze API* backend, processing SSE streams to display AI-generated analysis, suggestions, and mock interview questions dynamically.
+      - Ensured a robust user experience by implementing intelligent error handling and automatic retry mechanisms for API communication within the `useChat` hook.
+      - Developed a responsive and intuitive UI with *Tailwind CSS* and *DaisyUI*, including components for file uploads, conversation history (`ChatList`), and analysis type selection.
+      ],
+      zh: cventry(
+        tl: inline-h3("AI 简历分析系统"),
+        tr: [#githublink("Liu-Hong-Wei/resume-analysis")],
+      )[
+        技术栈：*React $dot.c$ Vite $dot.c$ Tailwind CSS $dot.c$ DaisyUI $dot.c$ SSE $dot.c$ Coze API*
+      - 主导设计并开发了基于 *React* 的 AI 简历分析应用，实现了与 AI 助手的实时流式对话功能。
+      - 利用*服务器发送事件 (SSE)* 技术处理后端流式数据，实现 AI 回复内容的实时 *Markdown* 渲染。
+      - 抽象并开发了核心的*自定义 Hook* (`useChat`)，用于统一管理 AI 对话的完整生命周期，包括消息状态、流式内容、加载与错误状态以及用户交互。
+      - 对接基于 *Coze API* 的后端服务，实现了对多种 SSE 事件类型（如 `message.delta`, `chat.completed`）的解析和处理，支持*流式*展示 AI 分析结果。
+      - 实现了智能错误处理与自动重连机制，在 `useChat` Hook 中处理 API 通信失败的情况，提升了系统的健壮性和用户体验。
+      - 使用 *Tailwind CSS* 和 *DaisyUI* 构建了响应式用户界面，开发了文件上传、对话列表、分析类型选择器等多个高复用性组件。
       ],
     )
   }
@@ -108,13 +147,13 @@
         tr: githublink("Liu-Hong-Wei/SmartStay-System"),
       )[
       技术栈：*React $dot.c$ React Router $dot.c$ React Query $dot.c$ Redux $dot.c$ Styled-components $dot.c$ Rechart $dot.c$ Supabase*
-      - 为精品酒店设计的综合性内部管理系统，涵盖*预订*、*客舱*、*入住/退房*及*用户认证*等核心模块。
-      - 开发了*动态仪表盘*，通过统计图表可视化*入住率*、*销售额*和*近期活动*等关键业务指标。
-      - 实现了对酒店客舱和客户预订信息的完整 *CRUD（创建、读取、更新、删除）*功能。
-      - 设计了包括*服务端筛选*、*排序*和*分页*在内的高级数据处理功能，以实现高效的数据管理。
+      - 为酒店设计的内部管理系统，涵盖*预订*、*客舱*、*入住/退房*及*用户认证*等核心模块。
       - 采用现代前端技术栈构建：使用 *React* 框架，通过 *React Query* 进行异步状态管理，采用 *Styled-components* 进行组件化样式设计，并利用 *React Router* 实现页面导航。
-      - 集成 *Supabase* 作为后端服务，处理数据库操作、用户认证和数据存储。
-      - 系统特色功能包括*深色模式切换*、*用户个人资料更新*，并采用基于*组件的 UI 架构*以确保代码的可维护性和可扩展性。
+      - 系统特色功能包括*深色模式切换*、*用户个人资料更新*，并采用基于组件的 UI 架构以确保代码的可维护性和可扩展性。
+      - 使用 Rechart 开发了动态仪表盘，通过统计图表可视化入住率、销售额和近期活动等关键业务指标。
+      - 实现了对酒店房间和客户预订信息的完整 *CRUD*（创建、读取、更新、删除）功能。
+      - 实现预订信息的表格展示，包括筛选、排序和分页在内的高级数据处理功能，以实现高效的数据管理。
+      - 集成 Supabase 作为后端服务，处理数据库操作、用户认证和数据存储。
       ],
     )
   }
@@ -199,18 +238,10 @@
       translate(en: [
         - #cventry(tl: "Merit Student", tr: "")[]
       ], zh: [
-        - #cventry(tl: "校级三好学生", tr: "大一、大二学年均获奖")[]
-      ])
-    }
-    let third_prize = {
-      translate(en: [
-        - #cventry(tl: "The Third Prize Scholarship", tr: "")[]
-      ], zh: [
-        - #cventry(tl: "校级三等奖学金", tr: "大一、大二学年均获奖")[]
+        - #cventry(tl: "校级三好学生、校级三等奖学金", tr: "大一、大二均获奖")[]
       ])
     }
     merit
-    third_prize
   }
   
   let motivation = {
@@ -220,9 +251,9 @@
       - Enthusiastic about exploring new technologies, actively learning cutting-edge front-end knowledge and reading technical blogs to continuously improve development skills and innovative thinking.
     ]
     let zh = [
-      - 对前端开发怀有浓厚兴趣，*学习能力*较强，热爱阅读技术博客，渴望通过实践提升编程能力并掌握新技术。
-      - 熟悉使用 AI 辅助工具，善于*沟通与团队协作*，在项目中展现出良好的问题解决能力。
-      - 热爱跑步（半马成绩1:41），拥有良好的*抗压能力*与身体素质，并具备高效的时间管理和任务优先级处理能力。
+      - 熟悉使用 AI 辅助工具，善于*沟通与团队协作*，拥有良好的问题解决能力。
+      - 对前端开发怀有浓厚兴趣，喜欢读书，*学习能力*较强，希望通过实践提升编程能力。
+      - 拥有良好的*抗压能力*与身体素质，喜欢跑步（半马成绩1:41），并具备高效的时间管理和任务处理能力。
     ]
     translate(en: en, zh: zh)
   }
@@ -239,9 +270,8 @@
     en:
     block([*Available to start immediately* $dot.c$ Open to *full-time internship* (*five days a week*) $dot.c$ *Three months or longer* internship $dot.c$ Accepting *nationwide* internships.]),
     zh:
-    block([*可随时到岗* $dot.c$ 支持全职实习*5天/周* $dot.c$ 实习周期*三个月以上* $dot.c$ 可接受*全国范围*内的实习安排。])
+    block([*随时到岗* $dot.c$ 支持全职实习*5天/周* $dot.c$ 实习周期*三个月以上* $dot.c$ 可接受*全国范围*内的实习安排。])
   )
-      
   edu
 
   translate(en: [== Skills], zh: [== 专业技能])
@@ -249,12 +279,13 @@
 
   translate(en: [== Related Projects], zh: [== 项目经历])
   blog
-  smartstay
+  resumeAnalysis
+  // smartstay
 
-  translate(en: [== Awards], zh: [== 获奖经历])
-  awards
+  // translate(en: [== Awards], zh: [== 获奖经历])
+  // awards
 
-  translate(en: [== Motivation], zh: [== 个人简介])
+  translate(en: [== Motivation], zh: [== 个人评价])
   motivation
 
 }
