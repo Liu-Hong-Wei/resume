@@ -81,9 +81,8 @@
   )
 
   let the-font = (
-    "Palatino Linotype",
-    "Source Han Serif SC",
-    "Source Han Serif",
+    "Palatino",
+    "Songti SC",
   )
   
   show heading.where(
@@ -112,6 +111,8 @@
   )
   
   set par(justify: true, leading: 8pt)
+
+  show strong: set text(weight: "semibold") // 设置正文加粗文本为你想要的大小
 
   body
 }
