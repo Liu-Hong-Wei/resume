@@ -44,7 +44,7 @@
       translate(en: [
         #cventry(tl: "Merit Student", tr: "")[]
       ], zh: [
-        #cventry(tl: [大一、大二均获*校三好学生、校三等奖学金*], tr: [*GPA*: #gpa/4.00])[]
+        #cventry(tl: [大一、大二均获*校三好学生、校三等奖学金，英语四级 539 分，六级 561 分*], tr: [*GPA*: #gpa/4.00])[]
       ])
     }
     translate(
@@ -66,23 +66,24 @@
     let jd-date = [#translate-date(12, 2025) -- #translate-date(4, 2026)]
     translate(
       en: cventry(
-        tl: [*JD Inc.*，Beijing],
+        tl: [*JD Inc.*, Beijing],
         tr: jd-date,
       )[#noSimple[
-      - Improved many TiKV-relevant libraries, like optimizing the performance of #grpcio, adding new features to #procinfo.
-      - Helped to migrate the #protobuf library used by TiKV and its Raft implementation.
-      - Learned a lot about Rust programming, distributed system, working remotely, and databases.
+      - Developed modules using Vue3, TypeScript, and Element Plus, leading the implementation and refactoring of wealth management and membership pages, which reduced component coupling and improved the maintainability of complex forms.
+      - Abstracted common business components (e.g., amount input fields, carousels) within a Monorepo architecture, achieving cross-module reuse and standardizing interaction and data processing paradigms.
+      - Participated in migrating legacy projects from Vue2 to Vue3, refactoring from Options API to Composition API and resolving lifecycle differences and third-party library compatibility, ensuring zero regressions.
       ]],
       zh: cventry(
         tl: [#box(image("jd.png", height: 1.5em), baseline: 20%) *京东 - 财富前端研发部*，前端开发实习生],
         tr: jd-date,
-        bl: [参与京东金融旗下「企业金库」业务的前端开发与迭代维护。],
+        bl: [参与京东金融企业资金管理相关业务的前端研发与迭代，围绕核心理财与会员模块进行功能开发。],
         br: [北京],
       )[#noSimple[
-      - 独立负责了企业金库核心模块“七日理财”、“会员体系”等从0到1的前端开发与维护，主导技术方案设计并梳理优化业务流程，提升用户操作效率与体验。
-      - 基于 Vue3 + TypeScript + Element Plus 搭建模块架构，抽象封装 5+ 个高复用业务组件，并成功接入 3 条业务线，有效减少跨线重复开发。
-      - 将 AI 编程工具深度融入日常工作流，AI 代码采纳率稳定在 70% 以上，个人开发效率与代码交付质量显著提升。
-      - 独立把控前端项目进度，与后端、测试紧密协作，熟练主导联调、缺陷排查与部署上线，实现所有需求全量按期交付（零延期），展现了出色的工程闭环能力。
+        // ，主导技术方案设计并梳理优化业务流程，提升用户操作效率与体验
+      - 基于 *Vue3 + TypeScript + Element Plus* 进行模块开发，负责理财与会员相关页面的需求实现与重构，梳理业务状态流与交互逻辑，降低组件耦合度，提升复杂表单与数据展示场景的可维护性。
+      - 在 *Monorepo* 架构下抽象*通用业务组件*（如金额输入框与轮播图），实现跨模块复用并接入多业务场景，减少重复开发成本，统一交互与数据处理范式。
+      // - 参与存量项目从 *Vue2* 向 *Vue3* 的迁移，完成 *Options API* 到 *Composition API* 的重构，处理生命周期差异与第三方库兼容问题，保证迁移过程功能稳定与无回归。
+      - 将 *AI 编程工具*深度融入日常工作流，AI 代码采纳率稳定在 *70%* 以上，个人开发效率与代码交付质量显著提升。
       ]],
     )
   }
@@ -93,31 +94,54 @@
         tl: inline-h3("Personal Blog System"),
         tr: [#iconlink("https://liuhongwei.org"), #githublink("Liu-Hong-Wei/Blog")],
       )[
-      *Tech Stack*: React, TypeScript, Vite, Django REST
-      - Developed a modern, responsive *Single Page Application (SPA)* frontend for a personal blog using *React*, *TypeScript*, and *Vite*.
-      - Implemented a *component-based architecture* with features like post lists, detailed post views, and author profiles.
-      - Integrated with a *Django REST* backend to fetch and display blog content, including posts, tags, and user information.
-      - Implemented client-side rendering of *Markdown to HTML*, with *syntax highlighting* for code blocks.
-      - Enhanced user experience with features like *dark mode*, *lazy loading* for images and components, and client-side caching strategies using *custom hooks* (`useLocalStorage`, `useLazyLoading`).
-      - Planned and designed advanced features including *full-text search*, *internationalization (i18n)* for multi-language support, and a customizable *theming engine*.
-      - Architected for scalability and performance, with plans for *Progressive Web App (PWA)* capabilities for offline access and optimized *bundle splitting* for faster load times.
+      *Tech Stack*: React, TypeScript, Vite, Tailwind CSS, Motion, React Router, Unified.js
+      - Built a frontend engineering system using React and Vite, utilizing TypeScript for component-level type constraints and high reusability. Unified ESLint and Prettier configurations to enhance code consistency.
+      - Optimized first-screen performance by implementing route lazy loading and component splitting to reduce initial bundle size. Integrated Web Vitals monitoring for P75 analysis to drive critical resource loading optimization, stabilizing core page LCP under 2.5s.
+      - Encapsulated the data request layer with React Suspense and custom caching strategies to minimize duplicate requests and reduce redundant network overhead during cross-post navigation.
+      - Developed a robust Markdown rendering engine based on the Unified ecosystem, supporting header anchor generation, syntax highlighting, and extensions, while combining custom Hooks and Motion for enhanced interactive animations.
+      - Configured optimal Vite build strategies by splitting third-party dependencies and business modules using `manualChunks`, improving cache granularity and long-term hit rates.
       ],
       zh: cventry(
         tl: inline-h3("个人博客系统"),
         tr: [#iconlink("https://liuhongwei.org") $dot.c$ #githublink("Liu-Hong-Wei/Blog")],
       )[
         技术栈：*React $dot.c$ Vite $dot.c$ Tailwind CSS $dot.c$ Motion $dot.c$ React Router $dot.c$ Unified.js $dot.c$ ESLint $dot.c$ Prettier $dot.c$ TypeScript*
-      - 基于 *Vite* 构建的 *React 19* 进行高复用性的组件化开发，使用 *ESLint* 和 *Prettier* 进行代码质量控制, 确保代码风格一致性和减少潜在错误，进行高效开发。
-      - 利用 *TypeScript* 的类型安全特性和 *Tailwind CSS* 的快速样式开发能力，同时使用全局样式变量，保证样式的一致性和可维护性。
-      - 基于 *React Suspense* 和全局缓存机制优化数据请求，实现懒加载，减少冗余网络调用。
-      - 实现自动恢复滚动位置功能，集成 *Motion* 动画库、无障碍支持、用户打断检测和异步内容支持，并抽象封装成通用函数例如滚动到特定位置，提升用户浏览体验。
-      - 使用 *Unified.js* 生态实现 *Markdown* 的自定义样式渲染，支持标题锚点自动生成，并支持代码块的*语法高亮*。
-      - 通过*自定义 Hooks*实现暗黑模式、图片与组件的懒加载以及客户端缓存策略，提升用户体验。
-      - 使用 *Docker* 部署前后端，利用 *GitHub Actions* 实现主分支更新自动部署到生产环境,实现简单的 *CI/CD* 无感化部署。
-      - 使用 *Django* 后端开发，能够编写 *RESTful API* 接口与前端联调，实现了博客文章、标签等数据的异步获取与动态渲染。
+      - 基于 *React + Vite* 搭建前端工程体系，结合 *TypeScript* 实现组件级类型约束与高复用设计，统一 *ESLint* 与 *Prettier* 规范，提升代码一致性与团队协作效率。
+      - 围绕*首屏性能优化*，基于路由懒加载与组件拆分降低初始包体积，并接入 *Web Vitals* 线上监控按页面维度进行 *P75* 分析，以数据驱动优化关键资源加载路径，使核心页面 *LCP* 稳定在 *2.5s* 以内。
+      - 基于 *React Suspense* 与自定义缓存策略封装数据请求层，减少重复请求，在多文章跳转场景下降低冗余网络开销，提升页面切换流畅度。
+      - 基于 *Unified* 生态实现 *Markdown* 渲染能力，支持标题锚点生成、代码高亮与语法扩展，并封装通用 Hooks，结合 *Motion* 优化交互动效与浏览体验。
+      - 基于 *Vite* 构建优化打包策略，通过 `manualChunks` 拆分第三方依赖与业务模块，优化缓存粒度并提升长期缓存命中率，减少重复加载成本。
       ],
     )
   }
+
+ let aiWorkflow = {
+    translate(
+      en: cventry(
+        tl: inline-h3("Low-Code AI Workflow Building Platform"),
+        tr: [#githublink("Liu-Hong-Wei/aiflow-studio")],
+      )[
+        *Tech Stack*: React, TypeScript, React Flow, Zustand, NestJS, React Router
+        - Built a visual workflow orchestration system using *React Flow*, designing a DAG structure and execution DSL for nodes and edges, combining *Zustand* for unified state management and incremental updates to resolve data consistency and rendering performance issues under complex dependencies.
+        - Optimized streaming execution and long-session rendering by implementing real-time output and state feedback with *SSE*, and integrated `react-virtuoso` virtual lists in the chat area to improve rendering performance and user experience in long-message scenarios.
+        - Implemented a workflow execution engine based on *NestJS*, parsing orchestration results into DAG execution plans, designing node scheduling and task execution models that support parallel execution, failure retries, and interruption recovery.
+        - Abstracted the *Agent execution mechanism* by designing a Plan-Act-Observe inference flow, unifying LLM inference and Tool invocation into standard node semantics, and achieving capacity decoupling and dynamic extension based on a Tool Registry.
+        - Modularized *RAG capabilities*, completing document parsing, chunking, vector storage, and multi-way recall strategies, integrating them as standard nodes to participate in workflow orchestration and execution alongside the inference pipeline.
+      ],
+      zh: cventry(
+        tl: inline-h3("低代码 AI 工作流编排平台"),
+        tr: [#githublink("Liu-Hong-Wei/aiflow-studio")],
+      )[
+        技术栈：*React $dot.c$ TypeScript $dot.c$ React Flow $dot.c$ Zustand $dot.c$ NestJS $dot.c$ React Router*
+      // - *项目概述*：面向开发者与业务人员的低代码 AI 应用构建平台，支持以可视化方式编排 LLM、RAG、Tool 与 Agent 执行流程，构建具备可观测性与可扩展性的工作流系统。
+      - 基于 *React Flow* 构建可视化工作流编排系统，设计节点与边的 *DAG 结构*及执行 *DSL*，结合 *Zustand* 实现统一状态管理与增量更新，解决复杂依赖下的数据一致性与渲染性能问题。
+      - 构建流式执行与长会话渲染优化方案，基于 *SSE* 实现执行过程实时输出与状态回传，并在聊天区接入 `react-virtuoso` 虚拟列表，优化长消息场景下的渲染性能与交互体验。
+      - 基于 *NestJS* 实现工作流执行引擎，将编排结果解析为 *DAG 执行计划*，设计节点调度与任务执行模型，支持并行执行、失败重试与中断恢复，构建稳定可控的流程运行时。
+      - 抽象 *Agent 执行机制*，设计 *Plan-Act-Observe* 推理流程，将 *LLM 推理*与 *Tool 调用*统一为标准节点语义，基于 Tool Registry 实现能力解耦与动态扩展。
+      - 实现 *RAG 能力*模块化接入，完成文档解析、分块切片、向量化存储与多路召回策略，并作为标准节点参与工作流编排，支持与推理链路组合执行。
+      ],
+    )
+  } 
 
   let resumeAnalysis = {
     translate(
@@ -153,28 +177,28 @@
       translate(en: [
         - Familiar with HTML5, CSS3, and JavaScript, and have experience with TypeScript.
       ], zh: [
-        - 熟练使用 HTML5、CSS3、JavaScript, 了解 JavaScript 的闭包、原型链、ES6+ 特性等，了解并使用过 TypeScript 开发。
+        - 扎实掌握 *HTML5*、*CSS3*、*JavaScript* 核心能力，深入理解闭包、原型链及 *ES6+* 特性，具备 *TypeScript* 实际开发经验。
       ])
     }
     let css = {
       translate(en: [
         - Experience with CSS preprocessors like Sass/Less and popular CSS frameworks such as Tailwind CSS
       ], zh: [
-        - 拥有 Sass/Less 等 CSS 预处理器的使用经验，并熟悉如 Tailwind CSS 等流行的 CSS 框架。
+        - (deprecated)拥有 Sass/Less 等 CSS 预处理器的使用经验，并熟悉如 Tailwind CSS 等流行的 CSS 框架。
       ])
     }
     let react = {
       translate(en: [
         - Familiar with React, Redux (including Redux Toolkit), React Router, and state management solutions.
       ], zh: [
-        - 熟悉 React、React Router、Redux (包括 Redux Toolkit)及前端状态管理方案。
+        - 熟悉 *React* 技术体系，掌握 *React Router*、*Redux* 及 *Redux Toolkit* 等状态管理方案，具备中大型前端应用开发能力。
       ])
     }
     let build = {
       translate(en: [
         - Familiar with build tools like Vite, Webpack, and package managers such as npm or pnpm, and support code splitting and performance optimization.
       ], zh: [
-        - 熟悉 Vite、Webpack 等前端构建工具，以及 npm 或 pnpm 等包管理工具，支持代码分割和性能优化。
+        - 熟练使用 *Vite*、*Webpack* 等构建工具及 *npm*、*pnpm* 包管理体系，具备*代码分割*、*构建优化*与工程化实践经验。
       ])
     }
     let testing_debugging = {
@@ -182,6 +206,13 @@
         - Familiar with front-end testing tools like Jest/Vitest, and proficient in using browser developer tools for debugging.
       ], zh: [
         - 了解 Jest/Vitest 等前端测试工具，熟练使用浏览器开发者工具进行代码调试。
+      ])
+    }
+    let engineer = {
+      translate(en: [
+        - Proficient in using Git for version control and collaborating on projects through platforms like GitHub/GitLab.
+      ], zh: [
+        - 具备良好的工程协作能力，熟练使用 *Git* 进行版本控制，熟悉 *GitHub* 协作流程，掌握代码调试与测试能力（*Jest*、*Vitest*）。
       ])
     }
     let git = {
@@ -205,6 +236,13 @@
         - 了解 Node.js 与 Express 框架进行后端开发，了解中间件开发与 PostgreSQL 等数据库的交互。
       ])
     }
+    let ai = {
+      translate(en: [
+        - Familiar with using AI programming tools like GitHub Copilot, and have experience integrating AI capabilities into development workflows.
+      ], zh: [
+        - 具备 *AI* 协作开发意识，了解 *RAG*、*MCP*、*Agent* 等大模型应用范式，结合 *Node.js* 与基础后端能力，能够参与全栈场景开发。
+      ])
+    }
     let en = {
       translate(en: [
         - CET-4 score of 539 and CET-6 score of 561. Regularly read English books and can proficiently read English documents and materials, and can communicate in daily and work-related conversations.
@@ -213,14 +251,16 @@
       ])
     }
     basics
-    css
+    // css
     react
     build
-    git
-    testing_debugging   
-    networks
-    fullstack
-    en
+    // git
+    // testing_debugging   
+    // networks
+    engineer
+    ai
+    // fullstack
+    // en
   }
 
   let awards = {
@@ -251,18 +291,20 @@
   // Start of the document
   translate(
     en: namewithposition(smallcaps[Ethan Liu], "Frontend Developer"),
-    zh: namewithposition("刘宏伟", "求职意向：前端开发/AI应用开发")
+    zh: namewithposition("刘宏伟", "求职意向：前端开发实习生")
   )
 
- [#iconlink("155-1027-5677", icon: "phone") $dot.c$ #iconlink("mailto:lhw1953927853@gmail.com", icon: "envelope", txt: "lhw1953927853@gmail.com")]
+  cventry(tl: [#iconlink("155-1027-5677", icon: "phone") $dot.c$ #iconlink("mailto:lhw1953927853@gmail.com", icon: "envelope", txt: "lhw1953927853@gmail.com")],
+ tr: translate(
+    en:
+    [*Available to start immediately* $dot.c$ Open to *full-time internship* (*five days a week*) $dot.c$ *Three months or longer* internship $dot.c$ Accepting *nationwide* internships.],
+    zh:
+    [可即时到岗 $dot.c$ 接受异地工作 $dot.c$ 全职实习5天/周 $dot.c$ 实习周期 6 个月以上]
+  )
+ )[]
+ 
  // $dot.c$ #iconlink("https://liuhongwei.org") $dot.c$ #iconlink("https://github.com/Liu-Hong-Wei", icon: "github")
     
-  translate(
-    en:
-    block([*Available to start immediately* $dot.c$ Open to *full-time internship* (*five days a week*) $dot.c$ *Three months or longer* internship $dot.c$ Accepting *nationwide* internships.]),
-    zh:
-    block([*随时到岗* $dot.c$ 支持全职实习*5天/周* $dot.c$ 实习周期*三个月以上* $dot.c$ 可接受*全国范围*内的实习安排。])
-  )
   edu
 
   translate(en: [== Work Experience], zh: [== 工作经历])
@@ -270,6 +312,7 @@
 
   translate(en: [== Related Projects], zh: [== 项目经历])
   blog
+  aiWorkflow
   // resumeAnalysis
 
   translate(en: [== Skills], zh: [== 专业技能])
