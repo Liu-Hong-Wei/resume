@@ -13,9 +13,9 @@ Add icons to the four existing resume section headings without changing their wo
 
 Use one semantic Font Awesome icon for each section:
 
-- Education: `graduation-cap`
+- Education: `building-columns`
 - Work Experience: `briefcase`
-- Related Projects: `diagram-project`
+- Related Projects: `folder-open`
 - Skills: `code`
 
 Icons are solid black, have no background or border, and inherit the heading color. Each icon is approximately 80% of the heading text size, sits in a fixed-width box, and has a small gap before the title. The icon and title remain vertically aligned and do not change the existing divider-line treatment.
