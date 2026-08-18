@@ -17,6 +17,13 @@
   link("https://github.com/" + userRepo)[#fa-icon("github") #userRepo]
 }
 
+#let section-heading(icon, body) = heading(
+  level: 2,
+  box(width: 1em, baseline: 0%)[
+    #text(size: 0.75em, fill: black)[#fa-icon(icon, solid: true)]
+  ] + h(0.1em) + body,
+)
+
 
 // https://github.com/typst/typst/issues/1987#issuecomment-1690672386
 #let latex = {
@@ -110,7 +117,7 @@
    // numbering: "1 / 1"
   )
   
-  set par(justify: true, leading: 8pt)
+  set par(justify: true, leading: 8.8pt)
 
   show strong: set text(weight: "semibold") // 设置正文加粗文本为你想要的大小
 
