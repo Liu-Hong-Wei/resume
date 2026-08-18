@@ -231,11 +231,11 @@
       )[
       ],
       zh: cventry(
-        tl: inline-h3([#box(image("stock.png", height: 0.9em), baseline: 20%) AI 投研决策 Multi-Agent 决策平台]),
+        tl: inline-h3([#box(image("stock.png", height: 0.9em), baseline: 0%) AI Multi-Agent 投研决策平台]),
         tr: [],
       )[
-        面向美股个人股票投资调研场景构建 AI 投研决策 Agent 平台，围绕研究规划、证据检索、多 Agent 分析、人工参与决策构建完整工作流，实现从问题输入到可追溯的投研建议全流程闭环。
-        - 技术栈：*React 19 $dot.c$ TypeScript $dot.c$ Vite $dot.c$ Tailwind CSS $dot.c$ Python $dot.c$ FastAPI $dot.c$ LangGraph $dot.c$ PostgreSQL* 
+        面向个人美股投资调研场景构建 AI 投研决策 Agent 平台，围绕研究规划、证据检索、多 Agent 分析、人工参与决策构建完整工作流，实现从问题输入到可追溯的投研建议全流程闭环，旨在为投资者提供一站式智能化的投研决策支持。
+        - 技术栈：*React 19 $dot.c$ TypeScript $dot.c$ Vite $dot.c$ Tailwind CSS $dot.c$ Zod $dot.c$ Python $dot.c$ FastAPI $dot.c$ LangGraph $dot.c$ PostgreSQL* 
         - *Agent 编排与决策链路*：基于 *LangGraph* 构建*多 Agent *协作流程，由 Planner Agent 拆解研究任务，调度专家 Agent 并行收集与分析资料，结合 *Human-in-the-loop* 支持用户确认、修改及决策落库。
         - *Agent 工程治理*：构建 Agent 层的 *Harness* 治理体系。实现基于 Pydantic 的输出校验与错误回灌机制，门禁进行 Token/Time 多维度*预算控制*、细粒度*三态熔断*以及指数*抖动重试*策略，提升 Agent 工作流执行的稳定性。
         - *RAG 检索增强*：实现任务级投研知识检索链路，基于 pgvector 余弦相似度和 PostgreSQL FTS *双路召回*，经 RRF 融合、关键词*重排*及去重后生成候选结果，并通过 LLM 查询改写与消解代词，实现多轮对话下的*高精准检索*并支持结果*引用溯源*。
@@ -373,7 +373,7 @@
     en:
     [*Available to start immediately* $dot.c$ Open to *full-time internship* (*five days a week*) $dot.c$ *Three months or longer* internship $dot.c$ Accepting *nationwide* internships.],
     zh:
-    [月内到岗 $dot.c$ 实习5天/周 $dot.c$ 实习 5 个月以上]
+    [可即时到岗 $dot.c$ 实习5天/周 $dot.c$ 实习 5 个月以上]
   )
  )[]
     // tr: translate( en: [*Available to start immediately* $dot.c$ Open to *full-time internship* (*five days a week*) $dot.c$ *Three months or longer* internship $dot.c$ Accepting *nationwide* internships.], zh: text(size: 11.5pt)[求职意向：Agent 前端/全栈开发工程师])
