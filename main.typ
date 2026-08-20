@@ -53,7 +53,7 @@
         tr: [#cuc-date  (expected graduation)],
       )[Minor in Mathematics, GPA #gpa/4.00],
       zh: cventry(
-        tl: [*中国传媒大学（211/双一流）*，计算机科学与技术专业，本科大三在读，北京],
+        tl: [*中国传媒大学（211/双一流）*，计算机科学与技术专业，本科大四，北京],
         tr: [#cuc-date (预计毕业)],
       )[#merit]
     )
