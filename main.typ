@@ -44,7 +44,7 @@
       translate(en: [
         #cventry(tl: "Merit Student", tr: "")[]
       ], zh: [
-        #cventry(tl: [大一、大二均获*校三好学生、校三等奖学金，英语四级 539 分，六级 561 分*], tr: [*GPA*: #gpa/4.00 (均分87分)])[]
+        #cventry(tl: [大一、大二均获*校级三好学生、校级三等奖学金，英语四级 539 分，六级 561 分*], tr: [*GPA*: #gpa/4.00 (均分87分)])[]
       ])
     }
     translate(
@@ -67,7 +67,7 @@
     translate(
       en: cventry(
         tl: [*JD Inc.*, Beijing],
-        tr: jd-date,
+        tr: [jd-date, Beijing],
       )[#noSimple[
       - Developed modules using Vue3, TypeScript, and Element Plus, leading the implementation and refactoring of wealth management and membership pages, which reduced component coupling and improved the maintainability of complex forms.
       - Abstracted common business components (e.g., amount input fields, carousels) within a Monorepo architecture, achieving cross-module reuse and standardizing interaction and data processing paradigms.
@@ -75,15 +75,20 @@
       ]],
       zh: cventry(
         tl: [#box(image("jd.png", height: 1.5em), baseline: 20%) *京东 - 财富前端研发部*，前端开发实习生],
-        tr: jd-date,
-        bl: [参与京东金融企业资金管理相关业务的前端研发与迭代，围绕核心理财与会员模块进行功能开发。],
-        br: [北京],
+        tr: [#jd-date，北京],
+        // bl: [参与京东金融企业金库资金管理相关业务的前端研发与迭代，围绕核心理财与会员模块进行功能开发。],
+        bl: [参与京东金融企业资金管理相关业务前端研发，围绕理财、会员等核心模块进行业务迭代、微前端建设、架构迁移及工程化优化。],
+        br: [],
       )[#noSimple[
-        // ，主导技术方案设计并梳理优化业务流程，提升用户操作效率与体验
-      - 基于 *Vue3 + TypeScript + Element Plus* 进行模块开发，负责理财与会员相关页面的需求实现与重构，梳理业务状态流与交互逻辑，降低组件耦合度，提升复杂表单与数据展示场景的可维护性。
-      - 在 *Monorepo* 架构下抽象*通用业务组件*（如金额输入框与轮播图），实现跨模块复用并接入多业务场景，减少重复开发成本，统一交互与数据处理范式。
-      - 参与旧基金购买页改造，将存量模块从 *Vue 2* 向 *Vue 3* 进行迁移，包括 *Options API* 向 *Composition API* 重构、生命周期适配、第三方组件兼容性处理以及路由与状态管理升级，保障业务功能在迁移升级过程中的稳定运行。
-      - 基于 *MCP* 协议打造 AI 辅助研发体系，沉淀可复用的标准化 *Skill* 资产，将 AI 代码采纳率提升至 *70%* 以上，显著提升了研发效率与代码交付质量。
+      // ，主导技术方案设计并梳理优化业务流程，提升用户操作效率与体验
+      // - 基于 *Vue3 + TypeScript + Element Plus* 进行模块开发，负责理财与会员相关页面的需求实现与重构，梳理业务状态流与交互逻辑，降低组件耦合度，提升复杂表单与数据展示场景的可维护性。
+      // - 在 *Monorepo* 架构下抽象*通用业务组件*（如金额输入框与轮播图），实现跨模块复用并接入多业务场景，减少重复开发成本，统一交互与数据处理范式。
+      // - 参与旧基金购买页改造，将存量模块从 *Vue 2* 向 *Vue 3* 进行迁移，包括 *Options API* 向 *Composition API* 重构、生命周期适配、第三方组件兼容性处理以及路由与状态管理升级，保障业务功能在迁移升级过程中的稳定运行。
+      // - 基于 *MCP* 协议打造 AI 辅助研发体系，沉淀可复用的标准化 *Skill* 资产，将 AI 代码采纳率提升至 *70%* 以上，显著提升了研发效率与代码交付质量。
+      - *业务开发与微前端*： 基于 *Vue3 + TypeScript + Element Plus* 开发七日理财、会员体系模块，结合 *MicroApp* 完成子应用接入与跨应用通信，优化复杂业务模块的交互与状态管理。
+      - *组件复用与架构迁移*： 在 *Monorepo* 下沉淀金额输入框、轮播图等通用业务组件，并推动基金购买页由 *Vue2 + Options API* 迁移至 *Vue3 + Composition API*。
+      - *构建与性能优化*： 基于 *Vite* 优化构建及资源加载链路，通过代码分包、按需加载与依赖优化降低*首屏开销*，结合监控数据定位性能瓶颈，FCP 从 2.8s 降至 1.6s。
+      - *AI 研发效能建设*： 基于 *MCP* 构建 AI 辅助研发体系，沉淀代码分析、组件生成等标准化 *Skill* 资产，结合 AI Coding 工具将代码采纳率提升至 *70%* 以上。
       ]],
     )
   }
@@ -104,16 +109,21 @@
       ]],
       zh: cventry(
         tl: [#box(image("dcd.png", height: 1.5em), baseline: 20%) *懂车帝 (原字节跳动旗下) - 二手车研发 - 大前端*，AI全栈/跨端开发实习生],
-        tr: dcd-date,
-        bl: [参与懂车帝*百万DAU级*二手车业务跨端与 H5 页面研发，负责卖车首页改造、全链路人补券等核心需求开发，参与业务组件治理、埋点监控与AI 工程化建设。],
-        br: [北京],
+        tr: [#dcd-date，北京],
+        // bl: [参与懂车帝*百万DAU级*二手车业务跨端与 H5 页面研发，负责卖车首页改造、全链路人补券等核心需求开发，参与业务组件治理、埋点监控与AI 工程化建设。],
+        bl: [参与懂车帝 App *百万 DAU 级*二手车业务跨端与 H5 研发，负责卖车首页改造、优惠券发放等核心需求，覆盖跨端开发、组件治理、质量监控及 AI 工程化建设。],
+        br: [],
       )[#noSimple[ 
-      - 基于 *React Lynx* 与 *TypeScript* 开发跨端业务模块，按*状态 Hook + 展示组件 + 业务容器*对历史复杂组件完成分层重构，抽离公共 Hook 与业务组件并复用于卖车首页、行情授权弹窗等 5 个页面，减少重复代码，实现一套逻辑多端共用。
-      // - 参与懂车帝 app 卖车页行情授权弹窗开发，实现城市状态跨页同步，抽象公共筛选组件，提升业务开发效率与交互一致性。使卖车有效线索转化率提升了 3%。
-      - 参与卖车页行情授权弹窗建设，针对多页面实例状态不一致问题，调研*事件通信*、*Storage* 等方案，设计跨页状态同步机制，抽象通用筛选组件并联动 *JSB* 完成端能力调用，提升多端交互一致性。 
-      - 参与*全链路*人补券能力建设，负责 C1 页面*接入*与*组件工程化*改造，设计优惠券领取、膨胀等状态流转方案，引入*乐观更新*优化接口延迟场景下的交互反馈，并完成组件* Hook 化*迁移，带来更流畅的交互体验，预计增长日均收车量*10%*。
-      - 参与前端*质量监控与业务埋点*建设，接入 Slardar 完善 JS Error、性能指标及异常链路监控，结合关键业务流程埋点分析用户行为与转化漏斗，提升线上问题定位与业务迭代效率。
-      - 参与团队* AI Coding Harness *建设，参与团队知识库生命周期重构，基于 *SDD* 建立*”需求捕获-语义沉淀-历史归档“*的机制，引入代码对齐门禁、知识状态管理、AI 预审与语义索引，将历史资料提炼为*可追溯、可检索、可持续维护*的 *AI 知识库*，提升知识复用与 AI 上下文精确度。
+      // - 基于 *React Lynx* 与 *TypeScript* 开发跨端业务模块，按*状态 Hook + 展示组件 + 业务容器*对历史复杂组件完成分层重构，抽离公共 Hook 与业务组件并复用于卖车首页、行情授权弹窗等 5 个页面，减少重复代码，实现一套逻辑多端共用。 // - 参与懂车帝 app 卖车页行情授权弹窗开发，实现城市状态跨页同步，抽象公共筛选组件，提升业务开发效率与交互一致性。使卖车有效线索转化率提升了 3%。
+      // - 参与卖车页行情授权弹窗建设，针对多页面实例状态不一致问题，调研*事件通信*、*Storage* 等方案，设计跨页状态同步机制，抽象通用筛选组件并联动 *JSB* 完成端能力调用，提升多端交互一致性。 
+      // - 参与*全链路*人补券能力建设，负责 C1 页面*接入*与*组件工程化*改造，设计优惠券领取、膨胀等状态流转方案，引入*乐观更新*优化接口延迟场景下的交互反馈，并完成组件* Hook 化*迁移，带来更流畅的交互体验，预计增长日均收车量*10%*。
+      // - 参与团队* AI Coding Harness *建设，参与团队知识库生命周期重构，基于 *SDD* 建立*”需求捕获-语义沉淀-历史归档“*的机制，引入代码对齐门禁、知识状态管理、AI 预审与语义索引，将历史资料提炼为*可追溯、可检索、可持续维护*的 *AI 知识库*，提升知识复用与 AI 上下文精确度。
+      // - 参与前端*质量监控与业务埋点*建设，接入 Slardar 完善 JS Error、性能指标及异常链路监控，结合关键业务流程埋点分析用户行为与转化漏斗，提升线上问题定位与业务迭代效率。
+      - *跨端业务与组件治理*： 基于*React Lynx + TypeScript*开发跨端模块，按*Hook + 展示组件 + 业务容器*重构复杂组件，沉淀公共能力复用于*5*个页面。 
+      - *跨页状态与端能力联动*： 设计*事件通信*与*Storage*状态同步机制，解决多页面实例状态不一致问题，抽象通用筛选组件并结合*JSB*完成端能力调用。 
+      - *优惠券链路优化*： 负责*全链路人补券*C1 页面接入及*组件工程化*改造，设计优惠券领取、膨胀状态流转，引入*乐观更新*降低接口延迟带来的交互阻塞。 
+      - *质量监控与数据治理*： 接入*Slardar*完善JS Error、性能指标及异常链路*监控*，结合业务*埋点*分析关键流程转化漏斗，提升线上问题定位效率。 
+      - *AI 工程化建设*： 参与*AI Coding Harness*与知识库建设，基于*SDD + 语义索引*提升知识复用效率，同时完善 *Agent* 流式事件适配、可见输出控制、Timeout 与 Retry，提升长任务交互稳定性。
       ]],
     )
   }
@@ -373,7 +383,8 @@
     en:
     [*Available to start immediately* $dot.c$ Open to *full-time internship* (*five days a week*) $dot.c$ *Three months or longer* internship $dot.c$ Accepting *nationwide* internships.],
     zh:
-    [可即时到岗 $dot.c$ 实习5天/周 $dot.c$ 实习 5 个月以上]
+    // [可即时到岗 $dot.c$ 实习5天/周 $dot.c$ 实习 5 个月以上]
+    [2027届 $dot.c$ 可提前实习 $dot.c$ 可异地Base]
   )
  )[]
     // tr: translate( en: [*Available to start immediately* $dot.c$ Open to *full-time internship* (*five days a week*) $dot.c$ *Three months or longer* internship $dot.c$ Accepting *nationwide* internships.], zh: text(size: 11.5pt)[求职意向：Agent 前端/全栈开发工程师])
@@ -383,8 +394,8 @@
   edu
 
   section-heading("briefcase", translate(en: [Work Experience], zh: [实习经历]))
-  jd
   dcd
+  jd
 
   section-heading("folder", translate(en: [Related Projects], zh: [项目经历]))
   // blog
